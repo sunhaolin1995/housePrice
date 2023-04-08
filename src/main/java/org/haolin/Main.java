@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         // 设置爬虫访问链接
-        String url = "https://dl.ke.com/ershoufang/rs广贤梁园/";
+        String url = "https://dl.ke.com/ershoufang/rs和泰万家/";
 
         // 使用Jsoup连接链接并获取页面内容
         Document doc = Jsoup.connect(url).get();
@@ -21,6 +21,10 @@ public class Main {
         // 使用CSS选择器定位二手房信息所在的标签
         Elements elements = doc.select(".sellListContent .clear");
 
+        String totalNum = doc.select(".total").get(0).childNodes().get(1).childNodes().get(0).toString();
+
+
+        System.out.println("今天共上架"+totalNum+"套二手房");
         // 遍历所有二手房信息
         for (Element element : elements) {
             // 使用CSS选择器定位房屋价格所在的标签
@@ -39,7 +43,11 @@ public class Main {
             String unitPriceStr = unitPrice.text();
 
             // 输出单价
-            System.out.println(unitPriceStr);
+            System.out.print(unitPriceStr);
+
+            //输出房子信息
+            System.out.println(element.select(".houseInfo").first().text());
+
         }
     }
 }
