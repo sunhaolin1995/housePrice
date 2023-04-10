@@ -51,9 +51,8 @@ public class MailService {
         List<String> houseList = housePriceDTO.getHouseList();
 
         String res ="<table>"
-
-                + "<tr><th>价格（万）</th><th>单价（元/平米）</th><th>楼层 户型 面积（平米）</th></tr>"
-                + "<tr><td>"+housePriceDTO.getTotalNum() +"</td></tr>";
+                + "<tr><td>"+housePriceDTO.getTotalNum() +"</td></tr>"
+                + "<tr><th>价格（万）</th><th>单价（元/平米）</th><th>楼层 户型 面积（平米）</th><th>关注人数/发布天数</th><th>跳转链接</th></tr>";
 
         for (String s: houseList) {
             res = res+s;
@@ -81,7 +80,7 @@ public class MailService {
         message.setContent(multipart);
 
         // 发送邮件
-        Transport.send(message);
+      //  Transport.send(message);
 
         System.out.println("邮件发送成功！");
     }
