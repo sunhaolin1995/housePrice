@@ -43,6 +43,10 @@ public class sendStringService {
         // 遍历所有二手房信息
         for (Element element : elements) {
 
+            if (element.select(".img").size() == 0){
+                continue;
+            }
+
             String s1 = "<tr><td>";
             // 使用CSS选择器定位房屋价格所在的标签
             Element priceElement = element.select(".totalPrice").first();
@@ -66,7 +70,22 @@ public class sendStringService {
             //输出房子信息
             String houseInfo = element.select(".houseInfo").first().text();
 
-            s1=s1+houseInfo +"</td></tr>";
+            s1=s1+houseInfo +"</td><td>";
+
+            //获取关注人数和发布时间
+            String followInfo = element.select(".followInfo").first().text();
+
+            s1 = s1+followInfo +"</td><td>";
+
+            String href = "";
+            //获取房子的链接
+
+            href  = element.select(".img").first().attributes().get("href");
+
+
+
+            s1=s1+href+"</td></tr>";
+
 
 
             res.add(s1);

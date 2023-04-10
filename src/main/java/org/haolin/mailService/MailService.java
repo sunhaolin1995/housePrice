@@ -43,11 +43,12 @@ public class MailService {
         message.setFrom(new InternetAddress("hlsunneu@qq.com")); // 发件人
         message.setRecipient(Message.RecipientType.TO, new InternetAddress("2575453225@qq.com")); // 收件人
 
+        String housingEstate = "广贤梁园";
         //1056931551@qq.com,
-        message.setSubject("邮件标题"); // 邮件主题
+        message.setSubject(housingEstate + "今日二手房价格"); // 邮件主题
 
 
-        HousePriceDTO housePriceDTO = sendStringService.getService("广贤梁院");
+        HousePriceDTO housePriceDTO = sendStringService.getService(housingEstate);
         List<String> houseList = housePriceDTO.getHouseList();
 
         String res ="<table>"
@@ -80,7 +81,7 @@ public class MailService {
         message.setContent(multipart);
 
         // 发送邮件
-      //  Transport.send(message);
+        Transport.send(message);
 
         System.out.println("邮件发送成功！");
     }
