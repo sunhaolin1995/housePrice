@@ -1,10 +1,13 @@
-package org.haolin;
+package org.haolin.getHousePrice;
 
 import org.haolin.dto.HousePriceDTO;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +16,14 @@ import java.util.List;
  * @author 孙浩林
  * @date: ${DATE} ${TIME}
  */
-public class sendStringService {
+@Component
+public class SendStringService {
 
     public static void main(String[] args) throws IOException {
         getService("广贤梁院");
         System.out.println();
     }
+
 
     public static HousePriceDTO getService(String housingEstate) throws IOException {
         // 设置爬虫访问链接

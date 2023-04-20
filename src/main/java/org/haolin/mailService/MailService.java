@@ -4,10 +4,12 @@ package org.haolin.mailService;
 
 
 import org.haolin.dto.HousePriceDTO;
-import org.haolin.sendStringService;
+import org.haolin.getHousePrice.SendStringService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -17,9 +19,13 @@ import javax.mail.internet.MimeMultipart;
 import java.util.List;
 import java.util.Properties;
 
+
+@Component
 public class MailService {
 
-    public static void main(String[] args) throws Exception {
+
+    @Scheduled(cron = "0 0 10 * * ?")
+    public void getHousePrice() throws Exception {
 
         // 配置邮件服务器
         Properties props = new Properties();
@@ -48,7 +54,7 @@ public class MailService {
         message.setSubject(housingEstate + "今日二手房价格"); // 邮件主题
 
 
-        HousePriceDTO housePriceDTO = sendStringService.getService(housingEstate);
+        HousePriceDTO housePriceDTO = SendStringService.getService(housingEstate);
         List<String> houseList = housePriceDTO.getHouseList();
 
         String res ="<table>"
