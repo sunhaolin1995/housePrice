@@ -74,11 +74,6 @@ public class MailService {
         Element table = doc.select("table").first();
 
 
-
-        // 邮件正文
-       // String content = sendService;
-        //message.setContent(content, "text/html;charset=UTF-8");
-
         //将HTML表格添加到邮件内容中
         BodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setContent(table.toString(), "text/html;charset=UTF-8");
