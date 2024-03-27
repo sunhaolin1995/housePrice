@@ -7,6 +7,7 @@
     <groupId>org.haolin</groupId>
     <artifactId>housePrice</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
 
     <dependencies>
