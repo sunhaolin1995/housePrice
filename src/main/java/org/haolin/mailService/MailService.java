@@ -3,6 +3,8 @@ package org.haolin.mailService;
 
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.haolin.dto.HousePriceDTO;
 import org.haolin.getHousePrice.SendStringService;
 import org.jsoup.Jsoup;
@@ -23,6 +25,7 @@ import java.util.Properties;
 @Component
 public class MailService {
 
+    private static final Logger logger = LogManager.getLogger(MailService.class);
 
     @Scheduled(cron = "0 0 10 * * ?")
     public void getHousePrice() throws Exception {
@@ -85,6 +88,7 @@ public class MailService {
         Transport.send(message);
 
         System.out.println("邮件发送成功！");
+        logger.info("邮件发送成功！");
     }
 
 
