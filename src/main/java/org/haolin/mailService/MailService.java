@@ -88,7 +88,7 @@ public class MailService {
         Transport.send(message);
 
         System.out.println("邮件发送成功！");
-        logger.info("邮件发送成功！");
+        logger.info(housingEstate+"邮件发送成功！");
     }
 
 
