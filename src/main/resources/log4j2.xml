@@ -5,7 +5,7 @@
         <Property name="LOG_PATTERN">
             %d{yyyy-MM-dd 'at' HH:mm:ss.SSS z} %-5level %class{36} %L %M : %msg%xEx%n
         </Property>
-        <Property name="LOG_FILE_PATH">/home/admin/myapp/logs</Property>
+        <Property name="LOG_FILE_PATH">/home/admin/myapp/housePrice/logs</Property>
     </Properties>
     <Appenders>
         <!--输出到控制台-->
