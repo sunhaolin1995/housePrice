@@ -35,6 +35,9 @@ public class MailService {
         props.setProperty("mail.transport.protocol", "smtp"); // 使用的协议（JavaMail规范要求）
         props.setProperty("mail.smtp.host", "smtp.qq.com"); // 发件人的邮箱的 SMTP 服务器地址
         props.setProperty("mail.smtp.auth", "true"); // 需要请求认证
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtp.port", "465");
 
         // 使用授权码登录邮箱
         Authenticator auth = new Authenticator() {
