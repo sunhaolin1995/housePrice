@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+//nohup java -jar housePrice-1.0-SNAPSHOT.jar > housePrice.log 2>&1 &
+
 @SpringBootApplication
 @EnableScheduling
 @Slf4j
